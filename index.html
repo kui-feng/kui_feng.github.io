@@ -152,6 +152,171 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-数据持久化之2进制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/">数据持久化之2进制</a>
+    </h1>
+  
+
+        
+        <a href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/" class="archive-article-date">
+  	<time datetime="2024-06-17T08:35:33.719Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据持久化之2进制相关.</p>
+<h2 id="各种类型转换"><a href="#各种类型转换" class="headerlink" title="各种类型转换"></a>各种类型转换</h2><h3 id="C-常用数据类型"><a href="#C-常用数据类型" class="headerlink" title="C#常用数据类型"></a>C#常用数据类型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//不同变量类型</span><br><span class="line">//有符号 sbyte int short long</span><br><span class="line"></span><br><span class="line">//无符号 byte uint ushort ulong</span><br><span class="line"></span><br><span class="line">//浮点 <span class="built_in">float</span> double decimal</span><br><span class="line"></span><br><span class="line">//特殊 bool char string</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="变量的本质"><a href="#变量的本质" class="headerlink" title="变量的本质"></a>变量的本质</h3><pre><code>变量的本质是2进制，在内存中以字节的形式存储，1byte=8bit，1bit为0或1；可以通过sizeof方法看到字节长度。
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;int&quot;</span> + sizeof(int) + <span class="string">&quot;字节&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="二进制文件读写的本质"><a href="#二进制文件读写的本质" class="headerlink" title="二进制文件读写的本质"></a>二进制文件读写的本质</h3><pre><code>通过将各种类型的变量转换成字节数组，将直接数组存储到文件中
+可以节约存储空间，提升效率，安全性
+</code></pre>
+<h3 id="各类型数据和字节数据相互转换"><a href="#各类型数据和字节数据相互转换" class="headerlink" title="各类型数据和字节数据相互转换"></a>各类型数据和字节数据相互转换</h3><pre><code>C#提供了一个公共类
+类名：BitConverter
+命名空间：using System
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//1.将各类型转字节</span><br><span class="line">byte[] bytes = BitConverter.GetBytes(256);</span><br><span class="line"></span><br><span class="line">//2.字节数组转各类型</span><br><span class="line">int i = BitConverter.ToInt32(bytes, 0);</span><br><span class="line"><span class="built_in">print</span>(i);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="常见标准编码格式"><a href="#常见标准编码格式" class="headerlink" title="常见标准编码格式"></a>常见标准编码格式</h3><pre><code>常见的编码格式有ASCII、ANSI、GBK、GB2312、UTF - 8、GB18030和UNICODE等。
+戏开发中常用编码格式 UTF-8
+中文相关编码格式 GBK
+英文相关编码格式 ASCII
+
+在C#中有一个专门的编码格式类 来帮助我们将字符串和字节数组进行转换
+
+类名：Encoding
+需要引用命名空间：using System.Text;
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//1.将字符串以指定编码格式转字节</span><br><span class="line">byte[] bytes2 = Encoding.UTF8.GetBytes(<span class="string">&quot;二进制&quot;</span>);</span><br><span class="line"></span><br><span class="line">//2.字节数组以指定编码格式转字符串</span><br><span class="line">string s = Encoding.UTF8.GetString(bytes2);</span><br><span class="line"><span class="built_in">print</span>(s);</span><br></pre></td></tr></table></figure>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><pre><code>我们可以通过BitConverter和Encoding类中的API
+将所有C#提供给我们的数据类型和字节数组之间相互转换
+</code></pre>
+<h3 id="代码中的文件操作"><a href="#代码中的文件操作" class="headerlink" title="代码中的文件操作"></a>代码中的文件操作</h3><pre><code>C#提供了一个公共类 File(文件)
+类名：File
+命名空间：System.IO
+</code></pre>
+<h3 id="文件操作File类常用方法"><a href="#文件操作File类常用方法" class="headerlink" title="文件操作File类常用方法"></a>文件操作File类常用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">//1.判断文件是否存在</span><br><span class="line"><span class="keyword">if</span>(File.Exists(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件存在&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件不存在&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2.创建文件</span><br><span class="line">FileStream fs = File.Create(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>);</span><br><span class="line"></span><br><span class="line">//3.写入文件</span><br><span class="line">//将指定字节数组 写入到指定路径的文件中</span><br><span class="line">byte[] bytes = BitConverter.GetBytes(999);</span><br><span class="line">File.WriteAllBytes(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, bytes);</span><br><span class="line">//将指定的string数组内容 一行行写入到指定路径中</span><br><span class="line">string[] strs = new string[] &#123; <span class="string">&quot;123&quot;</span>, <span class="string">&quot;asd&quot;</span>, <span class="string">&quot;1231alk&quot;</span>, <span class="string">&quot;123123243&quot;</span>&#125;;</span><br><span class="line">File.WriteAllLines(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, strs);</span><br><span class="line">//将指定字符串写入指定路径</span><br><span class="line">File.WriteAllText(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, <span class="string">&quot;转义字符测试\n自持转义字符&quot;</span>);</span><br><span class="line"></span><br><span class="line">//4.读取文件</span><br><span class="line">//读取字节数据</span><br><span class="line">bytes = File.ReadAllBytes(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>);</span><br><span class="line"><span class="built_in">print</span>(BitConverter.ToInt32(bytes, 0));</span><br><span class="line"></span><br><span class="line">//读取所有行信息</span><br><span class="line">strs = File.ReadAllLines(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>);</span><br><span class="line"><span class="keyword">for</span> (int i = 0; i &lt; strs.Length; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(strs[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//读取所有文本信息</span><br><span class="line"><span class="built_in">print</span>(File.ReadAllText(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>));</span><br><span class="line"></span><br><span class="line">//5.删除文件</span><br><span class="line">//注意 如果删除打开着的文件 会报错</span><br><span class="line">File.Delete(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>);</span><br><span class="line"></span><br><span class="line">//6.复制文件</span><br><span class="line">//参数一：现有文件 需要是流关闭状态</span><br><span class="line">//参数二：目标文件</span><br><span class="line">File.Copy(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">//7.文件替换</span><br><span class="line">//参数一：用来替换的路径</span><br><span class="line">//参数二：被替换的路径</span><br><span class="line">//参数三：备份路径</span><br><span class="line">File.Replace(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, Application.dataPath + <span class="string">&quot;/test备份.abc&quot;</span>);</span><br><span class="line"></span><br><span class="line">//8.以流的形式 打开文件并写入或读取</span><br><span class="line">//参数一：路径</span><br><span class="line">//参数二：打开模式</span><br><span class="line">//参数三：访问模式</span><br><span class="line">FileStream fs = File.Open(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, FileMode.OpenOrCreate, FileAccess.ReadWrite);		</span><br></pre></td></tr></table></figure>
+
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><pre><code>一般情况下可以通过File类的方法整体读写内容
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/kui_feng.github.io/2024/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/kui_feng.github.io/2024/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
+  	<time datetime="2024-06-15T18:05:56.307Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="第一次测试"><a href="#第一次测试" class="headerlink" title="第一次测试"></a>第一次测试</h1><h2 id="链接测试"><a href="#链接测试" class="headerlink" title="链接测试"></a>链接<a target="_blank" rel="noopener" href="https://baidu.com/">测试</a></h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/kui_feng.github.io/2024/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

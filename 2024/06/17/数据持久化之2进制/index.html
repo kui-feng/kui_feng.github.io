@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://kui-feng.github.io/kui_feng.github.io">
-  <title>Archives | kui_feng&#39;s Blog</title>
+  <title>数据持久化之2进制 | kui_feng&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="kui_feng&#39;s Blog">
-<meta property="og:url" content="https://kui-feng.github.io/kui_feng.github.io/archives/index.html">
+  <meta name="description" content="数据持久化之2进制相关. 各种类型转换C#常用数据类型123456789&#x2F;&#x2F;不同变量类型&#x2F;&#x2F;有符号 sbyte int short long&#x2F;&#x2F;无符号 byte uint ushort ulong&#x2F;&#x2F;浮点 float double decimal&#x2F;&#x2F;特殊 bool char string   变量的本质变量的本质是2进制，在内存中以字节的形式存储，1byte&#x3D;8bit，1bit为0或1；可以通过s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据持久化之2进制">
+<meta property="og:url" content="https://kui-feng.github.io/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/index.html">
 <meta property="og:site_name" content="kui_feng&#39;s Blog">
+<meta property="og:description" content="数据持久化之2进制相关. 各种类型转换C#常用数据类型123456789&#x2F;&#x2F;不同变量类型&#x2F;&#x2F;有符号 sbyte int short long&#x2F;&#x2F;无符号 byte uint ushort ulong&#x2F;&#x2F;浮点 float double decimal&#x2F;&#x2F;特殊 bool char string   变量的本质变量的本质是2进制，在内存中以字节的形式存储，1byte&#x3D;8bit，1bit为0或1；可以通过s">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-17T08:35:33.719Z">
+<meta property="article:modified_time" content="2024-06-17T10:11:01.625Z">
 <meta property="article:author" content="kui_feng">
 <meta name="twitter:card" content="summary">
   
@@ -150,103 +154,196 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-数据持久化之2进制" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      数据持久化之2进制
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/kui_feng.github.io/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/" class="archive-article-date">
+
+        
+        <a href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/" class="archive-article-date">
   	<time datetime="2024-06-17T08:35:33.719Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/">数据持久化之2进制</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>数据持久化之2进制相关.</p>
+<h2 id="各种类型转换"><a href="#各种类型转换" class="headerlink" title="各种类型转换"></a>各种类型转换</h2><h3 id="C-常用数据类型"><a href="#C-常用数据类型" class="headerlink" title="C#常用数据类型"></a>C#常用数据类型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//不同变量类型</span><br><span class="line">//有符号 sbyte int short long</span><br><span class="line"></span><br><span class="line">//无符号 byte uint ushort ulong</span><br><span class="line"></span><br><span class="line">//浮点 <span class="built_in">float</span> double decimal</span><br><span class="line"></span><br><span class="line">//特殊 bool char string</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
 
+<h3 id="变量的本质"><a href="#变量的本质" class="headerlink" title="变量的本质"></a>变量的本质</h3><pre><code>变量的本质是2进制，在内存中以字节的形式存储，1byte=8bit，1bit为0或1；可以通过sizeof方法看到字节长度。
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;int&quot;</span> + sizeof(int) + <span class="string">&quot;字节&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="二进制文件读写的本质"><a href="#二进制文件读写的本质" class="headerlink" title="二进制文件读写的本质"></a>二进制文件读写的本质</h3><pre><code>通过将各种类型的变量转换成字节数组，将直接数组存储到文件中
+可以节约存储空间，提升效率，安全性
+</code></pre>
+<h3 id="各类型数据和字节数据相互转换"><a href="#各类型数据和字节数据相互转换" class="headerlink" title="各类型数据和字节数据相互转换"></a>各类型数据和字节数据相互转换</h3><pre><code>C#提供了一个公共类
+类名：BitConverter
+命名空间：using System
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//1.将各类型转字节</span><br><span class="line">byte[] bytes = BitConverter.GetBytes(256);</span><br><span class="line"></span><br><span class="line">//2.字节数组转各类型</span><br><span class="line">int i = BitConverter.ToInt32(bytes, 0);</span><br><span class="line"><span class="built_in">print</span>(i);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="常见标准编码格式"><a href="#常见标准编码格式" class="headerlink" title="常见标准编码格式"></a>常见标准编码格式</h3><pre><code>常见的编码格式有ASCII、ANSI、GBK、GB2312、UTF - 8、GB18030和UNICODE等。
+戏开发中常用编码格式 UTF-8
+中文相关编码格式 GBK
+英文相关编码格式 ASCII
+
+在C#中有一个专门的编码格式类 来帮助我们将字符串和字节数组进行转换
+
+类名：Encoding
+需要引用命名空间：using System.Text;
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//1.将字符串以指定编码格式转字节</span><br><span class="line">byte[] bytes2 = Encoding.UTF8.GetBytes(<span class="string">&quot;二进制&quot;</span>);</span><br><span class="line"></span><br><span class="line">//2.字节数组以指定编码格式转字符串</span><br><span class="line">string s = Encoding.UTF8.GetString(bytes2);</span><br><span class="line"><span class="built_in">print</span>(s);</span><br></pre></td></tr></table></figure>
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><pre><code>我们可以通过BitConverter和Encoding类中的API
+将所有C#提供给我们的数据类型和字节数组之间相互转换
+</code></pre>
+<h3 id="代码中的文件操作"><a href="#代码中的文件操作" class="headerlink" title="代码中的文件操作"></a>代码中的文件操作</h3><pre><code>C#提供了一个公共类 File(文件)
+类名：File
+命名空间：System.IO
+</code></pre>
+<h3 id="文件操作File类常用方法"><a href="#文件操作File类常用方法" class="headerlink" title="文件操作File类常用方法"></a>文件操作File类常用方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">//1.判断文件是否存在</span><br><span class="line"><span class="keyword">if</span>(File.Exists(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件存在&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;文件不存在&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//2.创建文件</span><br><span class="line">FileStream fs = File.Create(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>);</span><br><span class="line"></span><br><span class="line">//3.写入文件</span><br><span class="line">//将指定字节数组 写入到指定路径的文件中</span><br><span class="line">byte[] bytes = BitConverter.GetBytes(999);</span><br><span class="line">File.WriteAllBytes(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, bytes);</span><br><span class="line">//将指定的string数组内容 一行行写入到指定路径中</span><br><span class="line">string[] strs = new string[] &#123; <span class="string">&quot;123&quot;</span>, <span class="string">&quot;asd&quot;</span>, <span class="string">&quot;1231alk&quot;</span>, <span class="string">&quot;123123243&quot;</span>&#125;;</span><br><span class="line">File.WriteAllLines(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, strs);</span><br><span class="line">//将指定字符串写入指定路径</span><br><span class="line">File.WriteAllText(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, <span class="string">&quot;转义字符测试\n自持转义字符&quot;</span>);</span><br><span class="line"></span><br><span class="line">//4.读取文件</span><br><span class="line">//读取字节数据</span><br><span class="line">bytes = File.ReadAllBytes(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>);</span><br><span class="line"><span class="built_in">print</span>(BitConverter.ToInt32(bytes, 0));</span><br><span class="line"></span><br><span class="line">//读取所有行信息</span><br><span class="line">strs = File.ReadAllLines(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>);</span><br><span class="line"><span class="keyword">for</span> (int i = 0; i &lt; strs.Length; i++)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">print</span>(strs[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//读取所有文本信息</span><br><span class="line"><span class="built_in">print</span>(File.ReadAllText(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>));</span><br><span class="line"></span><br><span class="line">//5.删除文件</span><br><span class="line">//注意 如果删除打开着的文件 会报错</span><br><span class="line">File.Delete(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>);</span><br><span class="line"></span><br><span class="line">//6.复制文件</span><br><span class="line">//参数一：现有文件 需要是流关闭状态</span><br><span class="line">//参数二：目标文件</span><br><span class="line">File.Copy(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">//7.文件替换</span><br><span class="line">//参数一：用来替换的路径</span><br><span class="line">//参数二：被替换的路径</span><br><span class="line">//参数三：备份路径</span><br><span class="line">File.Replace(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, Application.dataPath + <span class="string">&quot;/test备份.abc&quot;</span>);</span><br><span class="line"></span><br><span class="line">//8.以流的形式 打开文件并写入或读取</span><br><span class="line">//参数一：路径</span><br><span class="line">//参数二：打开模式</span><br><span class="line">//参数三：访问模式</span><br><span class="line">FileStream fs = File.Open(Application.dataPath + <span class="string">&quot;/test.qin&quot;</span>, FileMode.OpenOrCreate, FileAccess.ReadWrite);		</span><br></pre></td></tr></table></figure>
+
+<h3 id="小结-1"><a href="#小结-1" class="headerlink" title="小结"></a>小结</h3><pre><code>一般情况下可以通过File类的方法整体读写内容
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kui-feng.github.io/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/kui_feng.github.io/2024/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2024-06-15T18:05:56.307Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-16</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/kui_feng.github.io/2024/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/kui_feng.github.io/2024/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/kui_feng.github.io/2024/06/15/hello-world/" class="archive-article-date">
-  	<time datetime="2024-06-15T14:42:35.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/kui_feng.github.io/2024/06/15/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -269,8 +366,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
