@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://kui-feng.github.io/kui_feng.github.io">
-  <title>Archives: 2024 | kui_feng&#39;s Blog</title>
+  <title>数据持久化之Excel表格 | kui_feng&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="kui_feng&#39;s Blog">
-<meta property="og:url" content="https://kui-feng.github.io/kui_feng.github.io/archives/2024/index.html">
+  <meta name="description" content="基于数据持久化之2进制对Excel表格进行操作 Excel数据读取打开Excel表格1.FileStream读取文件流 2.IExcelDataReader类，从流中读取Excel数据 3.DataSet 数据集合类 将Excel数据转存进其中方便读取  1234567891011121314151617181920212223             [MenuItem(&quot;GameTo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据持久化之Excel表格">
+<meta property="og:url" content="https://kui-feng.github.io/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BExcle%E8%A1%A8%E6%A0%BC/index.html">
 <meta property="og:site_name" content="kui_feng&#39;s Blog">
+<meta property="og:description" content="基于数据持久化之2进制对Excel表格进行操作 Excel数据读取打开Excel表格1.FileStream读取文件流 2.IExcelDataReader类，从流中读取Excel数据 3.DataSet 数据集合类 将Excel数据转存进其中方便读取  1234567891011121314151617181920212223             [MenuItem(&quot;GameTo">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-17T10:19:39.822Z">
+<meta property="article:modified_time" content="2024-06-17T10:30:13.427Z">
 <meta property="article:author" content="kui_feng">
 <meta name="twitter:card" content="summary">
   
@@ -150,157 +154,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据持久化之Excle表格" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/kui_feng.github.io/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/kui_feng.github.io/2024/06/18/%E9%81%87%E5%88%B0%E7%9A%84%E6%8A%A5%E9%94%99/" class="archive-article-date">
-  	<time datetime="2024-06-18T04:01:47.725Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-18</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/kui_feng.github.io/2024/06/18/%E9%81%87%E5%88%B0%E7%9A%84%E6%8A%A5%E9%94%99/">异常及解决办法</a>
+    <h1 class="article-title" itemprop="name">
+      数据持久化之Excel表格
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BExcle%E8%A1%A8%E6%A0%BC/" class="archive-article-date">
+        
+        <a href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BExcle%E8%A1%A8%E6%A0%BC/" class="archive-article-date">
   	<time datetime="2024-06-17T10:19:39.822Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BExcle%E8%A1%A8%E6%A0%BC/">数据持久化之Excel表格</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基于数据持久化之2进制对Excel表格进行操作</p>
+<h2 id="Excel数据读取"><a href="#Excel数据读取" class="headerlink" title="Excel数据读取"></a>Excel数据读取</h2><h3 id="打开Excel表格"><a href="#打开Excel表格" class="headerlink" title="打开Excel表格"></a>打开Excel表格</h3><pre><code>1.FileStream读取文件流
+2.IExcelDataReader类，从流中读取Excel数据
+3.DataSet 数据集合类 将Excel数据转存进其中方便读取
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">      </span><br><span class="line">       [MenuItem(<span class="string">&quot;GameTool/打开Excel表&quot;</span>)]//需要引用命名空间 using UnityEditor;</span><br><span class="line">private static void <span class="function"><span class="title">OpenExcel</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    using (FileStream fs = File.Open(Application.dataPath + <span class="string">&quot;/ArtRes/Excel/PlayerInfo.xlsx&quot;</span>, FileMode.Open, FileAccess.Read ))</span><br><span class="line">    &#123;</span><br><span class="line">        //通过我们的文件流获取Excel数据</span><br><span class="line">        IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(fs);</span><br><span class="line"></span><br><span class="line">        //将excel表中的数据转换为DataSet数据类型 方便我们 获取其中的内容</span><br><span class="line">        DataSet result = excelReader.AsDataSet();</span><br><span class="line"></span><br><span class="line">        //得到Excel文件中的所有表信息</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; result.Tables.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;表名：&quot;</span> + result.Tables[i].TableName);</span><br><span class="line">            Debug.Log(<span class="string">&quot;行数：&quot;</span> + result.Tables[i].Rows.Count);</span><br><span class="line">            Debug.Log(<span class="string">&quot;列数：&quot;</span> + result.Tables[i].Columns.Count);</span><br><span class="line">        &#125;</span><br><span class="line">        fs.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
 
+<h3 id="获取Excel表中单元格的信息"><a href="#获取Excel表中单元格的信息" class="headerlink" title="获取Excel表中单元格的信息"></a>获取Excel表中单元格的信息</h3><pre><code>1.FileStream读取文件流
+2.IExcelDataReader类，从流中读取Excel数据
+3.DataSet 数据集合类 将Excel数据转存进其中方便读取
+4.DataTable 数据表类 表示Excel文件中的一个表
+5.DataRow 数据行类 表示某张表中的一行数据
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">      [MenuItem(<span class="string">&quot;GameTool/读取Excel里的具体信息&quot;</span>)]</span><br><span class="line">private static void <span class="function"><span class="title">ReadExcel</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    using (FileStream fs = File.Open(Application.dataPath + <span class="string">&quot;/ArtRes/Excel/PlayerInfo.xlsx&quot;</span>, FileMode.Open, FileAccess.Read))</span><br><span class="line">    &#123;</span><br><span class="line">        IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(fs);</span><br><span class="line">        DataSet result = excelReader.AsDataSet();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; result.Tables.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            //得到其中一张表的具体数据</span><br><span class="line">            DataTable table = result.Tables[i];</span><br><span class="line">            //得到其中一行的数据</span><br><span class="line">            //DataRow row = table.Rows[0];</span><br><span class="line">            //得到行中某一列的信息</span><br><span class="line">            //Debug.Log(row[1].ToString());</span><br><span class="line">            DataRow row;</span><br><span class="line">            <span class="keyword">for</span> (int j = 0; j &lt; table.Rows.Count; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                //得到每一行的信息</span><br><span class="line">                row = table.Rows[j];</span><br><span class="line">                Debug.Log(<span class="string">&quot;*********新的一行************&quot;</span>);</span><br><span class="line">                <span class="keyword">for</span> (int k = 0; k &lt; table.Columns.Count; k++)</span><br><span class="line">                &#123;</span><br><span class="line">                    Debug.Log(row[k].ToString());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fs.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><pre><code>我们可以根据表中数据来动态的生成相关数据
+
+1.数据结构类
+2.容器类
+2进制数据
+
+提升读取效率
+提升数据安全性
+</code></pre>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://kui-feng.github.io/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BExcle%E8%A1%A8%E6%A0%BC/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/" class="archive-article-date">
-  	<time datetime="2024-06-17T08:35:33.719Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-17</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/kui_feng.github.io/2024/06/18/%E9%81%87%E5%88%B0%E7%9A%84%E6%8A%A5%E9%94%99/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          异常及解决办法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据持久化之2进制</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8B2%E8%BF%9B%E5%88%B6/">数据持久化之2进制</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/kui_feng.github.io/2024/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2024-06-15T18:05:56.307Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/kui_feng.github.io/2024/06/16/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/kui_feng.github.io/2024/06/15/hello-world/" class="archive-article-date">
-  	<time datetime="2024-06-15T14:42:35.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/kui_feng.github.io/2024/06/15/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -323,8 +360,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

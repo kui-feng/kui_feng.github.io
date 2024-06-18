@@ -152,6 +152,163 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-遇到的报错" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/kui_feng.github.io/2024/06/18/%E9%81%87%E5%88%B0%E7%9A%84%E6%8A%A5%E9%94%99/">异常及解决办法</a>
+    </h1>
+  
+
+        
+        <a href="/kui_feng.github.io/2024/06/18/%E9%81%87%E5%88%B0%E7%9A%84%E6%8A%A5%E9%94%99/" class="archive-article-date">
+  	<time datetime="2024-06-18T04:01:47.725Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我在开发过程中遇到的报错，报错环境，解决办法集合</p>
+<h2 id="2024-6-18"><a href="#2024-6-18" class="headerlink" title="2024&#x2F;6&#x2F;18"></a>2024&#x2F;6&#x2F;18</h2><h3 id="异常信息"><a href="#异常信息" class="headerlink" title="异常信息"></a>异常信息</h3><pre><code>PrecompiledAssemblyException: Multiple precompiled assemblies with the same name Excel.dll included or the current
+</code></pre>
+<h3 id="异常环境"><a href="#异常环境" class="headerlink" title="异常环境"></a>异常环境</h3><pre><code>在制作我的《死亡乐园Demo中》，当我导入Excel.dell包时，所有的代码全部变为杂项文件。
+</code></pre>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><pre><code>查看异常信息，通everying在文件中找到了同名的dell文件，原因是之前导入的 package文件含有Excel.dll包导致了冲突,删除其中一个，解除异常
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/kui_feng.github.io/2024/06/18/%E9%81%87%E5%88%B0%E7%9A%84%E6%8A%A5%E9%94%99/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据持久化之Excle表格" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BExcle%E8%A1%A8%E6%A0%BC/">数据持久化之Excel表格</a>
+    </h1>
+  
+
+        
+        <a href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BExcle%E8%A1%A8%E6%A0%BC/" class="archive-article-date">
+  	<time datetime="2024-06-17T10:19:39.822Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-06-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>基于数据持久化之2进制对Excel表格进行操作</p>
+<h2 id="Excel数据读取"><a href="#Excel数据读取" class="headerlink" title="Excel数据读取"></a>Excel数据读取</h2><h3 id="打开Excel表格"><a href="#打开Excel表格" class="headerlink" title="打开Excel表格"></a>打开Excel表格</h3><pre><code>1.FileStream读取文件流
+2.IExcelDataReader类，从流中读取Excel数据
+3.DataSet 数据集合类 将Excel数据转存进其中方便读取
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">      </span><br><span class="line">       [MenuItem(<span class="string">&quot;GameTool/打开Excel表&quot;</span>)]//需要引用命名空间 using UnityEditor;</span><br><span class="line">private static void <span class="function"><span class="title">OpenExcel</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    using (FileStream fs = File.Open(Application.dataPath + <span class="string">&quot;/ArtRes/Excel/PlayerInfo.xlsx&quot;</span>, FileMode.Open, FileAccess.Read ))</span><br><span class="line">    &#123;</span><br><span class="line">        //通过我们的文件流获取Excel数据</span><br><span class="line">        IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(fs);</span><br><span class="line"></span><br><span class="line">        //将excel表中的数据转换为DataSet数据类型 方便我们 获取其中的内容</span><br><span class="line">        DataSet result = excelReader.AsDataSet();</span><br><span class="line"></span><br><span class="line">        //得到Excel文件中的所有表信息</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; result.Tables.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;表名：&quot;</span> + result.Tables[i].TableName);</span><br><span class="line">            Debug.Log(<span class="string">&quot;行数：&quot;</span> + result.Tables[i].Rows.Count);</span><br><span class="line">            Debug.Log(<span class="string">&quot;列数：&quot;</span> + result.Tables[i].Columns.Count);</span><br><span class="line">        &#125;</span><br><span class="line">        fs.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="获取Excel表中单元格的信息"><a href="#获取Excel表中单元格的信息" class="headerlink" title="获取Excel表中单元格的信息"></a>获取Excel表中单元格的信息</h3><pre><code>1.FileStream读取文件流
+2.IExcelDataReader类，从流中读取Excel数据
+3.DataSet 数据集合类 将Excel数据转存进其中方便读取
+4.DataTable 数据表类 表示Excel文件中的一个表
+5.DataRow 数据行类 表示某张表中的一行数据
+</code></pre>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">      [MenuItem(<span class="string">&quot;GameTool/读取Excel里的具体信息&quot;</span>)]</span><br><span class="line">private static void <span class="function"><span class="title">ReadExcel</span></span>()</span><br><span class="line">&#123;</span><br><span class="line">    using (FileStream fs = File.Open(Application.dataPath + <span class="string">&quot;/ArtRes/Excel/PlayerInfo.xlsx&quot;</span>, FileMode.Open, FileAccess.Read))</span><br><span class="line">    &#123;</span><br><span class="line">        IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(fs);</span><br><span class="line">        DataSet result = excelReader.AsDataSet();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; result.Tables.Count; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            //得到其中一张表的具体数据</span><br><span class="line">            DataTable table = result.Tables[i];</span><br><span class="line">            //得到其中一行的数据</span><br><span class="line">            //DataRow row = table.Rows[0];</span><br><span class="line">            //得到行中某一列的信息</span><br><span class="line">            //Debug.Log(row[1].ToString());</span><br><span class="line">            DataRow row;</span><br><span class="line">            <span class="keyword">for</span> (int j = 0; j &lt; table.Rows.Count; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                //得到每一行的信息</span><br><span class="line">                row = table.Rows[j];</span><br><span class="line">                Debug.Log(<span class="string">&quot;*********新的一行************&quot;</span>);</span><br><span class="line">                <span class="keyword">for</span> (int k = 0; k &lt; table.Columns.Count; k++)</span><br><span class="line">                &#123;</span><br><span class="line">                    Debug.Log(row[k].ToString());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fs.Close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><pre><code>我们可以根据表中数据来动态的生成相关数据
+
+1.数据结构类
+2.容器类
+2进制数据
+
+提升读取效率
+提升数据安全性
+</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/kui_feng.github.io/2024/06/17/%E6%95%B0%E6%8D%AE%E6%8C%81%E4%B9%85%E5%8C%96%E4%B9%8BExcle%E8%A1%A8%E6%A0%BC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-数据持久化之2进制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
